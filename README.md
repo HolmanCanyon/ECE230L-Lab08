@@ -12,9 +12,9 @@ In this lab you have learned about multiplexers and demultiplexers.
 | Question 3 | Your answers to the question | 25% |
 
 ## Names
-
+Cody Toone, Canyon Holman
 ## Summary
-
+We used mulltiplexers and demultiplexers to simulate internet routing. We did this primarily using conditional statements in Verilog. 
 ## Lab Questions
 
 ### In plain English describe the function and use of a multiplexer.
