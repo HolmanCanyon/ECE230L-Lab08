@@ -47,9 +47,8 @@ module mux(
 endmodule
 
 module demux(
-    input Enable,
     input [3:0] In,
-    input [1:0] Sel,
+    input [1:0] Sel, Enable,
     output [3:0] Y1,
     output [3:0] Y2
 );
@@ -60,6 +59,7 @@ module demux(
     assign Y3 = Enable & (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
