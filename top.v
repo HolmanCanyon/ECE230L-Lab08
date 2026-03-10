@@ -3,6 +3,15 @@ module top(
   output [15:0]led
 );
   wire [3:0]mux_out;
+
+  mux mux_inst(
+    .A
+    .B
+    .C
+    .D
+    .Sel
+    .Y
+  );
   
   demux demux_inst(
     .In  (mux_out),
@@ -38,6 +47,7 @@ module demux(
     assign Y3 = (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
