@@ -7,7 +7,9 @@ module top(
   input btnC,
   output [15:0]led
 );
-  wire [3:0]mux_out;
+  wire [3:0] mux_out;
+  wire [1:0] mux_sel;
+  wire [1:0] demux_sel;
 
   mux mux_inst(
     .A (sw[3:0]),
@@ -52,6 +54,7 @@ module demux(
     assign Y3 = (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
