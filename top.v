@@ -21,7 +21,7 @@ module top(
     .D (sw[15:12]),
     .Sel (mux_sel),
     .Y (mux_out),
-    .Enable(BtnC)
+    .Enable(btnC)
   );
   
   demux demux_inst(
@@ -31,7 +31,7 @@ module top(
     .Y1  (led[7:4]),
     .Y2  (led[11:8]),
     .Y3  (led[15:12]),
-    .Enable(BtnC)
+    .Enable(btnC)
   );
 
 endmodule
@@ -51,15 +51,16 @@ module demux(
     input Enable,
     input [3:0] In,
     input [1:0] Sel,
-    output [3:0] Y1, Y2, Y3, Y4
+    output [3:0] Y0, Y1, Y2, Y3
 );
     
     assign Y0 = Enable & (~Sel[0] && ~Sel[1] ? In : 0); // Drive Y0 if Sel == 0
-    assign Y1 = Enable & (Sel[0] && ~Sel[1]; ? In : 0); // Drive Y1 if Sel == 1
+    assign Y1 = Enable & (Sel[0] && ~Sel[1] ? In : 0); // Drive Y1 if Sel == 1
     assign Y2 = Enable & (~Sel[0] &&  Sel[1] ? In : 0); // Drive Y3 if Sel == 1
     assign Y3 = Enable & (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
