@@ -54,12 +54,13 @@ module demux(
     output [3:0] Y0, Y1, Y2, Y3
 );
     
-    assign Y0 = Enable & (~Sel[0] && ~Sel[1] ? In : 0); // Drive Y0 if Sel == 0
-    assign Y1 = Enable & (Sel[0] && ~Sel[1] ? In : 0); // Drive Y1 if Sel == 1
-    assign Y2 = Enable & (~Sel[0] &&  Sel[1] ? In : 0); // Drive Y3 if Sel == 1
-    assign Y3 = Enable & (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
+    assign Y0 = Enable & (~Sel[0] && ~Sel[1] ? In : 0);
+    assign Y1 = Enable & (Sel[0] && ~Sel[1] ? In : 0);
+    assign Y2 = Enable & (~Sel[0] &&  Sel[1] ? In : 0);
+    assign Y3 = Enable & (Sel[0] &&  Sel[1] ? In : 0);
 
 endmodule
+
 
 
 
