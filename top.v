@@ -43,7 +43,7 @@ module mux(
   output [3:0] Y
 );
 
-  assign (Y = Sel[1] ? (Sel[0] ? B : A) : (Sel[0] ? D : C)) & Enable;
+  assign (Y = Sel[1] ? (Sel[0] ? D : C) : (Sel[0] ? B : A)) & Enable;
 
 endmodule
 
@@ -60,6 +60,7 @@ module demux(
     assign Y3 = Enable & (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
