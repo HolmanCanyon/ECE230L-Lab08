@@ -1,6 +1,14 @@
 module top(
-  
+  input [15:0]sw,
+  output [15:0]led
 );
+    
+     demux demux(
+      .(sw[0]),
+      .B(sw[1]),
+      .Y(led[0]),
+      .Borrow(led[1]) 
+    );
 
 endmodule
 
@@ -27,6 +35,7 @@ module demux(
     assign Y3 = (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
