@@ -1,3 +1,9 @@
+module top(
+  
+);
+
+endmodule
+
 module ternary_4_mux_4_bits(
   input [3:0] A, [3:0] B, [3:0] C, [3:0] D,
   input Sel0, Sel1
@@ -21,6 +27,7 @@ module demux(
     assign Y3 = (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
