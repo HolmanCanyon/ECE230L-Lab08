@@ -16,11 +16,11 @@ module top(
 
   mux mux_inst(
     .A (sw[3:0]),
-    .B (sw[7:4])
-    .C (sw[11:8])
-    .D (sw[15:12])
-    .Sel (mux_sel)
-    .Y (mux_out)
+    .B (sw[7:4]),
+    .C (sw[11:8]),
+    .D (sw[15:12]),
+    .Sel (mux_sel),
+    .Y (mux_out),
     .Enable(BtnC)
   );
   
@@ -60,6 +60,7 @@ module demux(
     assign Y3 = Enable & (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
