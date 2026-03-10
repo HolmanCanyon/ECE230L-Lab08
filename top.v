@@ -1,5 +1,5 @@
 module ternary_2_mux_2_bits(
-  input [3:0] A, [3:0] B, [3:0] C, [3:0] D
+  input [3:0] A, [3:0] B,
   input Sel,
   output [3:0] Y
 );
@@ -18,4 +18,5 @@ module equivalence_check(
     assign is_two   = ~select[0] &&  select[1]; // 0b10
     assign is_three =  select[0] &&  select[1]; // 0b11
 endmodule
+
 
