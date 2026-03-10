@@ -45,18 +45,20 @@ module ternary_4_mux_4_bits(
 endmodule
 
 module demux(
+    input Enable,
     input [3:0] In,
     input [1:0] Sel,
     output [3:0] Y1,
     output [3:0] Y2
 );
-
-    assign Y0 = (~Sel[0] && ~Sel[1] ? In : 0); // Drive Y0 if Sel == 0
-    assign Y1 = (Sel[0] && ~Sel[1]; ? In : 0); // Drive Y1 if Sel == 1
-    assign Y2 = (~Sel[0] &&  Sel[1] ? In : 0); // Drive Y3 if Sel == 1
-    assign Y3 = (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
+    
+    assign Y0 = Enable & (~Sel[0] && ~Sel[1] ? In : 0); // Drive Y0 if Sel == 0
+    assign Y1 = Enable & (Sel[0] && ~Sel[1]; ? In : 0); // Drive Y1 if Sel == 1
+    assign Y2 = Enable & (~Sel[0] &&  Sel[1] ? In : 0); // Drive Y3 if Sel == 1
+    assign Y3 = Enable & (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
