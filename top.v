@@ -1,5 +1,10 @@
 module top(
   input [15:0]sw,
+  input btnL,
+  input btnU,
+  input btnD,
+  input btnR,
+  input btnC,
   output [15:0]led
 );
   wire [3:0]mux_out;
@@ -47,6 +52,7 @@ module demux(
     assign Y3 = (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
