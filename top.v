@@ -11,6 +11,9 @@ module top(
   wire [1:0] mux_sel;
   wire [1:0] demux_sel;
 
+  assign mux_sel = {btnU, btnL};
+  assign demux_sel = {btnR, btnD};
+
   mux mux_inst(
     .A (sw[3:0]),
     .B (sw[7:4])
@@ -54,6 +57,7 @@ module demux(
     assign Y3 = (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
