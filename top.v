@@ -21,6 +21,7 @@ module top(
     .D (sw[15:12])
     .Sel (mux_sel)
     .Y (mux_out)
+    .Enable(BtnC)
   );
   
   demux demux_inst(
@@ -29,18 +30,19 @@ module top(
     .Y0  (led[3:0]),
     .Y1  (led[7:4]),
     .Y2  (led[11:8]),
-    .Y3  (led[15:12])
+    .Y3  (led[15:12]),
+    .Enable(BtnC)
   );
 
 endmodule
 
-module ternary_4_mux_4_bits(
+module mux(
   input [3:0] A, [3:0] B, [3:0] C, [3:0] D,
-  input [1: 0] Sel
+  input [1: 0] Sel, Enable,
   output [3:0] Y
 );
 
-  assign Y = Sel[1] ? (Sel[0] ? B : A) : (Sel[0] ? D : C);
+  assign (Y = Sel[1] ? (Sel[0] ? B : A) : (Sel[0] ? D : C)) & Enable;
 
 endmodule
 
@@ -58,6 +60,7 @@ module demux(
     assign Y3 = Enable & (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
