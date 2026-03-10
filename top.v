@@ -3,12 +3,14 @@ module top(
   output [15:0]led
 );
     
-     demux demux(
-      .(sw[0]),
-      .B(sw[1]),
-      .Y(led[0]),
-      .Borrow(led[1]) 
-    );
+  demux demux_inst(
+    .In  (sw[3:0]),
+    .Sel (sw[5:4]),
+    .Y0  (led[3:0]),
+    .Y1  (led[7:4]),
+    .Y2  (led[11:8]),
+    .Y3  (led[15:12])
+  );
 
 endmodule
 
@@ -35,6 +37,7 @@ module demux(
     assign Y3 = (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
