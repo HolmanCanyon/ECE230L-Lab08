@@ -54,9 +54,10 @@ module demux(
     output [3:0] Y0, Y1, Y2, Y3
 );
     
-    assign Y0 = Enable & (~Sel[0] && ~Sel[1] ? In : 0);
-    assign Y1 = Enable & (Sel[0] && ~Sel[1] ? In : 0);
-    assign Y2 = Enable & (~Sel[0] &&  Sel[1] ? In : 0);
-    assign Y3 = Enable & (Sel[0] &&  Sel[1] ? In : 0);
+  assign Y0 = (Enable && ~Sel[0] && ~Sel[1] ? In : 0);
+  assign Y1 = (Enable && Sel[0] && ~Sel[1] ? In : 0);
+  assign Y2 = (Enable && ~Sel[0] &&  Sel[1] ? In : 0);
+  assign Y3 = (Enable && Sel[0] &&  Sel[1] ? In : 0);
 
 endmodule
+
