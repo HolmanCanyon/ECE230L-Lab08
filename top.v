@@ -5,10 +5,10 @@ module top(
   wire [3:0]mux_out;
 
   mux mux_inst(
-    .A
-    .B
-    .C
-    .D
+    .A (sw[3:0]),
+    .B (sw[7:4])
+    .C (sw[11:8])
+    .D (sw[15:12])
     .Sel
     .Y (mux_out)
   );
@@ -47,6 +47,7 @@ module demux(
     assign Y3 = (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
