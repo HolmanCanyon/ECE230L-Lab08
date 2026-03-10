@@ -22,5 +22,4 @@ A multiplexer takes many different potential inputs and routes them with a switc
 ### In plain English describe the function and use of a demultiplexer.
 A demultiplexer is the opposite of a multiplexer and takes one input and routes it to many different potential outputs with a switch
 ### What other uses might these circuits have? (Think Shannon’s)
-One use for Muxes would be shifting bits for multiplication, another for a demux would be in retrieving data from memory or another source. 
-
+One use for Muxes would be shifting bits for multiplication, another for a demux would be in retrieving data from memory or another source. They can also be used to implement various logic functions.
