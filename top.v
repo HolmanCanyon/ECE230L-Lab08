@@ -10,7 +10,7 @@ module top(
     .C
     .D
     .Sel
-    .Y
+    .Y (mux_out)
   );
   
   demux demux_inst(
@@ -47,6 +47,7 @@ module demux(
     assign Y3 = (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
