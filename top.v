@@ -2,9 +2,10 @@ module top(
   input [15:0]sw,
   output [15:0]led
 );
-    
+  wire [3:0]mux_out;
+  
   demux demux_inst(
-    .In  (sw[3:0]),
+    .In  (mux_out),
     .Sel (sw[5:4]),
     .Y0  (led[3:0]),
     .Y1  (led[7:4]),
@@ -37,6 +38,7 @@ module demux(
     assign Y3 = (Sel[0] &&  Sel[1] ? In : 0); // Drive Y4 if Sel == 1
 
 endmodule
+
 
 
 
