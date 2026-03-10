@@ -60,5 +60,3 @@ module demux(
   assign Y3 = (Enable && Sel[0] &&  Sel[1] ? In : 0);
 
 endmodule
-
-
